@@ -52,7 +52,7 @@ docker exec -it clab-bgp-cplane-demo-tor1 vtysh -c 'show bgp ipv4 summary wide'
 docker exec -it clab-bgp-cplane-demo-tor0 vtysh -c 'show ip bgp'
 docker exec -it clab-bgp-cplane-demo-tor1 vtysh -c 'show ip bgp'
 # deploy  test app
-kubectl apply -f netshoot-ds.yaml
+kubectl apply -f netshoot.yaml
 kubectl rollout status ds/netshoot -w
 SRC_POD=$(kubectl get pods -o wide | grep "cplane-demo-worker " | awk '{ print($1); }')
 DST_IP=$(kubectl get pods -o wide | grep worker3 | awk '{ print($6); }')
