@@ -9,6 +9,12 @@ sudo mv ./kind /usr/local/bin/kind
 # edit cluster.yaml if needed
 kind create cluster --config=./cluster.yaml
 ```
+### Install kubectl
+```
+[[ ! -d "`echo ~`/.local/bin" ]] && mkdir -p "`echo ~`/.local/bin"
+kubectl -h &> /dev/null || (echo "Downloading kubectl"; curl -Lo "`echo ~`/.local/bin/kubectl" https://dl.k8s.io/release/v1.24.0/bin/linux/amd64/kubectl )
+chmod +x "`echo ~`/.local/bin/"*
+```
 ### Install containerlab
 ```
 bash -c "$(curl -sL https://get.containerlab.dev)" -- -v 0.31.1
